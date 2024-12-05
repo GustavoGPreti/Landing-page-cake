@@ -5,8 +5,11 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Navba
 import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 import AcmeLogo from "@/../public/img/LogoEmpresa.png";
 import Image from "next/image";
+import { usePathname } from 'next/navigation';
 
 export function NavBar() {
+    const pathname = usePathname();
+    
     const icons: { [key: string]: ReactNode } = {
         chevron: "",
         scale: <Image src="/img/imageNavBar1.png" alt="Bolo Piscininha" width={24} height={24} className="dark:invert"/>,
@@ -29,8 +32,10 @@ export function NavBar() {
         { name: "Como encomendar", href: "/como-encomendar" }
     ];
 
+    const isActive = (path: string) => pathname === path;
+
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen}>
+        <Navbar onMenuOpenChange={setIsMenuOpen} className="font-sans">
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -44,7 +49,11 @@ export function NavBar() {
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarItem>
-                    <Link color="foreground" href="/">
+                    <Link 
+                        color="foreground" 
+                        href="/"
+                        className={`${isActive('/') ? 'text-pink-500' : 'text-[#000] dark:text-white'} font-medium`}
+                    >
                         Home
                     </Link>
                 </NavbarItem>
@@ -53,7 +62,9 @@ export function NavBar() {
                         <DropdownTrigger>
                             <Button
                                 disableRipple
-                                className="p-0 bg-transparent data-[hover=true]:bg-transparent"
+                                className={`p-0 bg-transparent data-[hover=true]:bg-transparent font-medium ${
+                                    pathname.includes('/bolos') ? 'text-pink-500' : 'text-[#000] dark:text-white'
+                                }`}
                                 endContent={icons.chevron}
                                 radius="sm"
                                 variant="solid"
@@ -104,29 +115,36 @@ export function NavBar() {
                     </DropdownMenu>
                 </Dropdown>
                 <NavbarItem>
-                    <Link href="/contato" aria-current="page" className="text-[#000] dark:text-white">
+                    <Link 
+                        href="/contato" 
+                        className={`${isActive('/contato') ? 'text-pink-500' : 'text-[#000] dark:text-white'} font-medium`}
+                    >
                         Sobre Nós
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link className="text-[#000] dark:text-white" href="/como-encomendar">
+                    <Link 
+                        href="/como-encomendar"
+                        className={`${isActive('/como-encomendar') ? 'text-pink-500' : 'text-[#000] dark:text-white'} font-medium`}
+                    >
                         Como encomendar
                     </Link>
                 </NavbarItem>
             </NavbarContent>
+
             <NavbarContent justify="end">
                 <NavbarItem>
                     <ThemeSwitcher/>
                 </NavbarItem>
             </NavbarContent>
+
             <NavbarMenu>
                 {menuItems.map((item, index) => (
                     <NavbarMenuItem key={`${item.name}-${index}`}>
                         <Link
-                            color={
-                                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-                            }
-                            className="w-full"
+                            className={`w-full font-medium ${
+                                isActive(item.href) ? 'text-pink-500' : 'text-[#000] dark:text-white'
+                            }`}
                             href={item.href}
                             size="lg"
                         >

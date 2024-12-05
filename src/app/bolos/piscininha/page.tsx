@@ -16,8 +16,8 @@ export default function BolosPiscininha() {
             nome: "Bolo Piscininha de Cenoura com Chocolate",
             descricao: "Massa de cenoura com calda especial e cobertura cremosa",
             preco: {
-                pequeno: "30,00",
-                grande: "35,00"
+                medio: "22,00",
+                grande: "30,00"
             },
             imagem: imagembolopiscininhacomchocolate
         },
@@ -25,8 +25,8 @@ export default function BolosPiscininha() {
             nome: "Bolo Piscininha de Leite Ninho",
             descricao: "Massa branca com calda de leite ninho e cobertura especial",
             preco: {
-                pequeno: "30,00",
-                grande: "35,00"
+                medio: "22,00",
+                grande: "30,00"
             },
             imagem: imagembolopiscininhadeleite
         },
@@ -34,8 +34,8 @@ export default function BolosPiscininha() {
             nome: "Bolo Piscininha de Churros",
             descricao: "Massa branca com cobertura de churros",
             preco: {
-                pequeno: "30,00",
-                grande: "35,00"
+                medio: "22,00",
+                grande: "30,00"
             },
             imagem: imagembolopiscininhacomchurros
         },
@@ -43,8 +43,8 @@ export default function BolosPiscininha() {
             nome: "Bolo Piscininha de Amendoim",
             descricao: "Massa branca com cobertura de amendoim",
             preco: {
-                pequeno: "30,00",
-                grande: "35,00"
+                medio: "22,00",
+                grande: "30,00"
             },
             imagem: imagembolopiscininhacomamendoim
         },
@@ -52,8 +52,8 @@ export default function BolosPiscininha() {
             nome: "Bolo Piscininha de Chocolate",
             descricao: "Massa de chocolate com calda especial e cobertura cremosa de chocolate",
             preco: {
-                pequeno: "30,00",
-                grande: "35,00"
+                medio: "22,00",
+                grande: "30,00"
             },
             imagem: imagembolopiscininhachocolate
         }
@@ -94,11 +94,11 @@ export default function BolosPiscininha() {
                                 <div className="flex flex-col gap-2 mb-4">
                                     <div className="flex items-center gap-2">
                                         <div className="bg-secondary/10 dark:bg-secondary/20 px-3 py-1 rounded-full">
-                                            <span className="text-xs font-medium text-secondary">Pequeno</span>
+                                            <span className="text-xs font-medium text-secondary">Medio</span>
                                         </div>
                                         <div className="flex items-baseline">
                                             <span className="text-xs text-gray-600 dark:text-gray-400">R$</span>
-                                            <span className="text-lg font-bold text-secondary ml-1">{bolo.preco.pequeno}</span>
+                                            <span className="text-lg font-bold text-secondary ml-1">{bolo.preco.medio}</span>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-2">

@@ -56,12 +56,19 @@ export default function Cupcakes() {
                             }`}
                         >
                             {bolo.especial && (
-                                <div className="absolute top-4 right-4 z-10">
-                                    <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-                                        <FaStar className="text-yellow-300" />
-                                        Especial de Natal
+                                <>
+                                    <div className="absolute top-4 right-4 z-10">
+                                        <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+                                            <FaStar className="text-yellow-300" />
+                                            Especial de Natal
+                                        </div>
                                     </div>
-                                </div>
+                                    <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-10 rotate-[-30deg]">
+                                        <div className="bg-red-500 text-white px-6 py-2 rounded-lg text-xl font-bold shadow-lg border-2 border-white">
+                                            33% OFF
+                                        </div>
+                                    </div>
+                                </>
                             )}
                             <div className="relative w-full h-64">
                                 <Image
@@ -78,9 +85,22 @@ export default function Cupcakes() {
                                 <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
                                     {bolo.nome}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-                                    {bolo.descricao}
-                                </p>
+                                {bolo.especial ? (
+                                    <div className="relative">
+                                        <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                            Massa especial de panetone com cobertura de glacê e decoração natalina
+                                        </p>
+                                        <div className="absolute -right-2 -top-6">
+                                            <span className="inline-flex items-center px-2 py-1 rounded-md bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-200 text-xs font-medium">
+                                                🎅 Promoção Ativa
+                                            </span>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+                                        {bolo.descricao}
+                                    </p>
+                                )}
                                 <div className="mb-4">
                                     {bolo.promocao ? (
                                         <div className="flex items-center gap-2">
