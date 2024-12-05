@@ -1,86 +1,95 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
-import imagem3bolo from "@/../public/img/Imagem3-bolo.jpg"
-import { FaWhatsapp } from "react-icons/fa";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Image from "next/image";
+import Link from 'next/link';
+import { FaWhatsapp } from 'react-icons/fa';
+import { Button } from '@nextui-org/react';
+import Image from 'next/image';
 
 export default function Cta() {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    }, []);
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-b from-pink-50 to-white dark:from-gray-900 dark:to-gray-950 py-24">
+      {/* Elemento decorativo */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 dark:opacity-20">
+        <Image
+          src="/img/pattern-bg.png"
+          alt="Background pattern"
+          fill
+          className="object-cover"
+          priority={false}
+        />
+      </div>
 
-    return (
-        <div className="relative bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-            <div className='absolute inset-0 opacity-25' style={{ 
-                background: `
-                    radial-gradient(
-                        circle at 50% 50%, 
-                        rgba(249, 160, 202, 0.15) 0%,
-                        rgba(232, 121, 249, 0.08) 35%,
-                        rgba(204, 171, 238, 0.04) 65%,
-                        rgba(204, 171, 238, 0.02) 100%
-                    )
-                `
-            }}></div>
-            <div className="absolute inset-0 overflow-hidden">
-                <div 
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
-                    style={{
-                        background: `
-                            radial-gradient(
-                                circle at center,
-                                rgba(249, 160, 202, 0.1) 0%,
-                                rgba(232, 121, 249, 0.08) 30%,
-                                rgba(204, 171, 238, 0.03) 60%,
-                                transparent 100%
-                            )
-                        `,
-                        filter: 'blur(60px)'
-                    }}
-                />
+      <div className="relative container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+            Transforme seu evento em um momento
+            <span className="text-pink-500"> inesquecível</span>
+          </h2>
+          
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            Nossos bolos artesanais são preparados com ingredientes selecionados e muito carinho 
+            para tornar sua celebração ainda mais especial.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button
+              as={Link}
+              href="/bolos/piscininha"
+              className="bg-pink-500 text-white px-8 py-6 text-lg font-semibold hover:bg-pink-600 transition-colors"
+              size="lg"
+            >
+              Ver Cardápio
+            </Button>
+
+            <Button
+              as="a"
+              href="https://wa.me/5544984057214?text=Olá! Gostaria de fazer um orçamento"
+              target="_blank"
+              className="bg-green-500 text-white px-8 py-6 text-lg font-semibold hover:bg-green-600 transition-colors"
+              size="lg"
+              startContent={<FaWhatsapp className="text-xl" />}
+            >
+              Fazer Orçamento
+            </Button>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                Qualidade Garantida
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Ingredientes frescos e selecionados para o melhor sabor
+              </p>
             </div>
-            <section className="py-32 relative">
-                <div className="max-w-screen-xl mx-auto md:px-8">
-                    <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
-                        <div className="flex-1 sm:hidden lg:block" data-aos="fade-right">
-                            <div className="relative">
-                                <div className="absolute -inset-2 bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900/20 dark:to-purple-900/20 opacity-20 rounded-2xl" />
-                                <Image 
-                                    src={imagem3bolo}
-                                    width={500}
-                                    height={500}
-                                    className="md:max-w-lg rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 relative"
-                                    alt="Deliciosos bolos artesanais"
-                                />
-                            </div>
-                        </div>
-                        <div className="max-w-xl px-4 space-y-6 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl" data-aos="fade-left">
-                            <h2 className="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
-                                Descubra Sabores Únicos e <span className="bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">Momentos Especiais</span>
-                            </h2>
-                            <p className="text-lg text-gray-600 leading-relaxed dark:text-gray-300">
-                                Na Caseirinhos da Lê, transformamos ingredientes selecionados em obras de arte comestíveis. Cada criação nossa é uma expressão de dedicação e amor pela confeitaria artesanal.
-                            </p>
-                            <Button 
-                                variant="shadow" 
-                                color="secondary"
-                                size="lg"
-                                className="font-medium hover:opacity-90 transition-opacity"
-                                endContent={<FaWhatsapp className="text-lg" />}
-                            >
-                                Faça seu pedido especial
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                Sabor Artesanal
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Receitas exclusivas feitas com amor e dedicação
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                Atendimento Personalizado
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Adaptamos os bolos ao seu gosto e necessidade
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 p-6 bg-pink-50 dark:bg-gray-800 rounded-xl">
+            <p className="text-sm text-gray-600 dark:text-gray-300">
+              Faça seu pedido com antecedência mínima de 24 horas. 
+              Consulte disponibilidade para datas especiais.
+            </p>
+          </div>
         </div>
-    )
+      </div>
+    </section>
+  );
 }

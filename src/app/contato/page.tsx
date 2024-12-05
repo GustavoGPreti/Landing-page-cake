@@ -1,5 +1,5 @@
 "use client";
-import { Footer } from "@/components/Footer";
+import  Footer  from "@/components/Footer";
 import { NavBar } from "@/components/Navbar";
 import { Button } from "@nextui-org/react";
 import { FaWhatsapp, FaInstagram, FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
@@ -16,10 +16,10 @@ export default function ContatoPage() {
       <NavBar/>
       
       {/* Seção Sobre Nós */}
-      <div className="relative py-32 bg-pink-50 dark:bg-pink-900">
+      <div className="relative py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="flex-1">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            <div className="flex-1 w-full">
               <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-6">
                 Nosso Objetivo
               </h1>
@@ -30,15 +30,15 @@ export default function ContatoPage() {
                 Nossa expertise em confeitaria, combinada com um atendimento personalizado, nos permite atender às necessidades específicas de cada cliente, garantindo satisfação em cada produto entregue.
               </p>
             </div>
-            <div className="flex-1">
+            {/* Imagem apenas visível em desktop */}
+            <div className="hidden lg:block flex-1">
               <div className="relative h-[400px] w-full rounded-xl overflow-hidden shadow-xl">
                 <Image 
                   src={imagemlogo}
                   alt="Caseirinhos da Lê - Confeitaria Artesanal"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-xl"
-                  style={{ height: '100%' }}
+                  fill
+                  className="rounded-xl object-cover"
+                  sizes="(max-width: 1024px) 0vw, 50vw"
                 />
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function ContatoPage() {
       </div>
 
       {/* Equipe Profissional */}
-      <div className="max-w-7xl mx-auto px-4 py-20 bg-purple-50 dark:bg-purple-900">
+      <div className="max-w-7xl mx-auto px-4 py-16 md:py-20">
         <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Equipe Especializada
         </h2>
@@ -161,7 +161,7 @@ export default function ContatoPage() {
       </div>
 
       {/* Canais de Comunicação */}
-      <div className="max-w-4xl mx-auto px-4 pb-24 bg-blue-50 dark:bg-blue-900">
+      <div className="max-w-4xl mx-auto px-4 pb-24">
         <h2 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white">
           Canais de Atendimento
         </h2>

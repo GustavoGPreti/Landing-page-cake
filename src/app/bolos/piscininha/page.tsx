@@ -1,4 +1,4 @@
-import { Footer } from "@/components/Footer";
+import  Footer  from "@/components/Footer";
 import { NavBar } from "@/components/Navbar";
 import { Button } from "@nextui-org/react";
 import { FaWhatsapp } from "react-icons/fa"; 

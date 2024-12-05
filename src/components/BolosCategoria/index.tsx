@@ -7,18 +7,21 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
+import imagembolopiscininhacomchocolate from "@/../public/img/piscininhacenouracomchocolate.jpg";
+import imagembologelado from "@/../public/img/bologelado1.jpg";
+import imagemcupcake from "@/../public/img/cupcake.png";
 
 const categorias = [
     {
         titulo: "Bolos Piscininha",
         descricao: "Deliciosos bolos com cobertura cremosa que derretem na boca",
-        imagem: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=800&h=800&fit=crop",
+        imagem: imagembolopiscininhacomchocolate,
         link: "/bolos/piscininha"
     },
     {
         titulo: "Bolos Gelados",
         descricao: "Sobremesas refrescantes perfeitas para dias quentes",
-        imagem: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&h=800&fit=crop",
+        imagem: imagembologelado,
         link: "/bolos/gelados"
     },
     {
@@ -30,7 +33,7 @@ const categorias = [
     {
         titulo: "Cupcakes",
         descricao: "Pequenos prazeres decorados com amor e criatividade",
-        imagem: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=800&h=800&fit=crop",
+        imagem: imagemcupcake,
         link: "/bolos/cupcakes"
     }
 ];
@@ -82,8 +85,9 @@ export default function BolosCategoria() {
                                         src={categoria.imagem}
                                         alt={categoria.titulo}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                        layout="fill"
-                                        objectFit="cover"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                        priority={index === 0}
                                     />
                                 </div>
                                 

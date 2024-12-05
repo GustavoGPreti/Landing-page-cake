@@ -1,8 +1,7 @@
-"use client";
 import Link from 'next/link';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-white/70 dark:bg-gray-900 border-t border-gray-200 py-8">
       <div className="container mx-auto px-4">
@@ -18,6 +17,8 @@ export function Footer() {
 
           <nav className="flex flex-wrap justify-center gap-4 text-gray-600 dark:text-gray-300 text-sm">
             <Link href="/" className="hover:text-pink-500 transition-colors">Home</Link>
+            <Link href="/sobre" className="hover:text-pink-500 transition-colors">Sobre</Link>
+            <Link href="/como-encomendar" className="hover:text-pink-500 transition-colors">Como Encomendar</Link>
             <Link href="/bolos/piscininha" className="hover:text-pink-500 transition-colors">Bolos Piscininha</Link>
             <Link href="/bolos/gelados" className="hover:text-pink-500 transition-colors">Bolos Gelados</Link>
             <Link href="/bolos/aniversario" className="hover:text-pink-500 transition-colors">Bolos de aniversário</Link>
