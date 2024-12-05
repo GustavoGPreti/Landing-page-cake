@@ -9,11 +9,11 @@ import Image from "next/image";
 export function NavBar() {
     const icons: { [key: string]: ReactNode } = {
         chevron: "",
-        scale: <Image src="/img/imagenavbar1.png" alt="Bolo Piscininha" width={24} height={24} className="dark:invert"/>,
+        scale: <Image src="/img/imageNavBar1.png" alt="Bolo Piscininha" width={24} height={24} className="dark:invert"/>,
         lock: "",
-        activity: <Image src="/img/imagenavbar2.png" alt="Bolo Gelado" width={24} height={24} className="dark:invert"/>,
-        flash: <Image src="/img/imagenavbar3.png" alt="Bolo Aniversário" width={24} height={24} className="dark:invert"/>,
-        server: <Image src="/img/imagenavbar4.png" alt="Cup Cakes" width={24} height={24} className="dark:invert"/>,
+        activity: <Image src="/img/imageNavBar2.png" alt="Bolo Gelado" width={24} height={24} className="dark:invert"/>,
+        flash: <Image src="/img/imageNavBar3.png" alt="Bolo Aniversário" width={24} height={24} className="dark:invert"/>,
+        server: <Image src="/img/imageNavBar4.png" alt="Cup Cakes" width={24} height={24} className="dark:invert"/>,
         user: "",
     };
 
