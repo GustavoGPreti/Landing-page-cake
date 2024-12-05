@@ -53,7 +53,7 @@ export default function Cta() {
                             <div className="relative">
                                 <div className="absolute -inset-2 bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900/20 dark:to-purple-900/20 opacity-20 rounded-2xl" />
                                 <Image 
-                                    src="/img/imagem3-bolo.jpg"
+                                    src={imagem3bolo}
                                     width={500}
                                     height={500}
                                     className="md:max-w-lg rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 relative"
