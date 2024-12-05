@@ -29,13 +29,14 @@ export default function Cupcakes() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {bolos.map((bolo, index) => (
                         <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col">
-                            <div className="aspect-square w-full h-64 overflow-hidden">
+                            <div className="relative w-full h-64">
                                 <Image
-                                    src={bolo.imagem.src} 
+                                    src={bolo.imagem}
                                     alt={bolo.nome}
-                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                                    layout="fill"
-                                    objectFit="cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    priority={index === 0}
                                 />
                             </div>
                             <div className="p-6 flex flex-col flex-grow">

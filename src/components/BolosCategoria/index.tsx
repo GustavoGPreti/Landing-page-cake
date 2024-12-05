@@ -11,29 +11,28 @@ import Image from "next/image";
 const categorias = [
     {
         titulo: "Bolos Piscininha",
-        descricao: "Deliciosos bolos com cobertura cremosa",
+        descricao: "Deliciosos bolos com cobertura cremosa que derretem na boca",
         imagem: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=800&h=800&fit=crop",
         link: "/bolos/piscininha"
     },
     {
         titulo: "Bolos Gelados",
-        descricao: "Refrescantes e irresistíveis",
+        descricao: "Sobremesas refrescantes perfeitas para dias quentes",
         imagem: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&h=800&fit=crop",
         link: "/bolos/gelados"
     },
     {
         titulo: "Bolos de Aniversário",
-        descricao: "Especiais para sua celebração",
+        descricao: "Bolos personalizados para tornar seu dia ainda mais especial",
         imagem: "https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=800&h=800&fit=crop",
         link: "/bolos/aniversario"
     },
     {
         titulo: "Cupcakes",
-        descricao: "Mini delícias decoradas com carinho",
+        descricao: "Pequenos prazeres decorados com amor e criatividade",
         imagem: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=800&h=800&fit=crop",
         link: "/bolos/cupcakes"
     }
-    
 ];
 
 export default function BolosCategoria() {
@@ -47,62 +46,65 @@ export default function BolosCategoria() {
     }, []);
 
     return (
-        <div id="bolos-categorias" className="relative bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
-            <div className='absolute inset-0 opacity-25' style={{ 
+        <div id="bolos-categorias" className="relative bg-gradient-to-b from-pink-50 to-white dark:from-gray-900 dark:to-gray-950">
+            <div className='absolute inset-0 opacity-30' style={{ 
                 background: `
                     radial-gradient(
                         circle at 50% 50%, 
-                        rgba(249, 160, 202, 0.15) 0%,
-                        rgba(232, 121, 249, 0.08) 35%,
-                        rgba(204, 171, 238, 0.04) 65%,
-                        rgba(204, 171, 238, 0.02) 100%
+                        rgba(255, 182, 193, 0.2) 0%,
+                        rgba(255, 192, 203, 0.15) 35%,
+                        rgba(255, 182, 193, 0.1) 65%,
+                        rgba(255, 182, 193, 0.05) 100%
                     )
                 `
             }}></div>
 
-            <section className="py-24 relative" id="bolos-categorias">
+            <section className="py-24 relative">
                 <div className="max-w-screen-xl mx-auto px-4">
                     <h2 
-                        className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200"
+                        className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent"
                         data-aos="fade-down"
                     >
-                        Nossas Especialidades
+                        Nossas Delícias
                     </h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {categorias.map((categoria, index) => (
                             <div 
                                 key={index}
-                                className="group relative bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
+                                className="group relative rounded-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300"
                                 data-aos="fade-up"
                                 data-aos-delay={index * 100}
                             >
-                                <div className="aspect-square w-full h-64 overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"/>
+                                <div className="aspect-[4/5] w-full overflow-hidden">
                                     <Image
                                         src={categoria.imagem}
                                         alt={categoria.titulo}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         layout="fill"
                                         objectFit="cover"
                                     />
                                 </div>
                                 
-                                <div className="p-6 flex flex-col flex-grow">
-                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                                        {categoria.titulo}
-                                    </h3>
-                                    <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-                                        {categoria.descricao}
-                                    </p>
-                                    <Button
-                                        color="secondary"
-                                        variant="flat"
-                                        className="w-full mt-auto"
-                                        endContent={<FaArrowRight />}
-                                        onClick={() => router.push(categoria.link)}
-                                    >
-                                        Ver Mais
-                                    </Button>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                                    <div className="backdrop-blur-sm bg-white/10 p-4 rounded-xl">
+                                        <h3 className="text-2xl font-bold text-white mb-2">
+                                            {categoria.titulo}
+                                        </h3>
+                                        <p className="text-gray-200 text-sm mb-4 line-clamp-2">
+                                            {categoria.descricao}
+                                        </p>
+                                        <Button
+                                            color="secondary"
+                                            variant="shadow"
+                                            className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium"
+                                            endContent={<FaArrowRight />}
+                                            onClick={() => router.push(categoria.link)}
+                                        >
+                                            Explorar
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -111,4 +113,4 @@ export default function BolosCategoria() {
             </section>
         </div>
     );
-} 
+}

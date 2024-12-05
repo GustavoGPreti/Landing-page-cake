@@ -16,7 +16,7 @@ export default function BolosGelados() {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
+        <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white dark:from-gray-900 dark:to-gray-950">
             <NavBar/>
             <div className="max-w-screen-xl mx-auto px-4 py-24">
                 <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">
@@ -28,14 +28,15 @@ export default function BolosGelados() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {bolos.map((bolo, index) => (
-                        <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col">
-                            <div className="aspect-square w-full h-64 overflow-hidden">
+                        <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col transform hover:scale-105 transition-all duration-300">
+                            <div className="relative w-full h-64">
                                 <Image
-                                    src={bolo.imagem.src} 
+                                    src={bolo.imagem}
                                     alt={bolo.nome}
-                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                                    layout="fill"
-                                    objectFit="cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    priority={index === 0}
                                 />
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
