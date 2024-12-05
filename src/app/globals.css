@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animações personalizadas */
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+}
+
+/* Estilos globais */
+body {
+    @apply antialiased;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-pink-400 dark:bg-pink-600 rounded-full;
+}
+
+/* Transições suaves */
+* {
+    @apply transition-colors duration-200;
+}
+
+@font-face {
+    font-family: 'Courier New';
+    src: url('/fonts/Courier-New-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Courier New';
+    src: url('/fonts/Courier-New-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Courier New';
+    src: url('/fonts/Courier-New-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Courier New';
+    src: url('/fonts/Courier-New-Bold-Italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  
